@@ -66,9 +66,7 @@ bool isCharInWord(const char ch, const string& word)
 string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-    string answer = wordList[index];
-    for (char &x : answer)
-        x = ( (x >= 'A' && x <= 'Z') ? (char)(x - 32) : x );
+    string answer = wordList[index - 1];
     return answer;
 }
 

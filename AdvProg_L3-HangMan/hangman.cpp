@@ -66,10 +66,11 @@ bool isCharInWord(const char ch, const string& word)
 string chooseWordFromList(const vector<string>& wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-    string answer = wordList[index - 1];
-    for (char &x : answer)
-        x = ( (x >= 'A' && x <= 'Z') ? (char)(x - 32) : x );
-    return answer;
+	string answer;
+    answer = wordList[index];
+    for (int i = 0; i < answer.size(); i++){
+        answer[i] = tolower(answer[i]);
+    }
 }
 
 /***
@@ -119,6 +120,7 @@ void updateSecretWord(string& secretWord, const char ch, const string& word)
 void updateEnteredChars(const char ch, string& chars){
     // TODO: append the character ch is in end of the text chars
     chars += ch;
+    chars += " ";
 }
 
 /***
@@ -162,7 +164,7 @@ void processData(const char ch, const string& word,
    }
    else{
        updateIncorrectGuess(incorrectGuess);
-       updateEnteredChars(ch, correctChars);
+       updateEnteredChars(ch, incorrectChars);
    }
 }
 
